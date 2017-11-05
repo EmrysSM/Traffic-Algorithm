@@ -1,17 +1,19 @@
 import java.util.ArrayList;
 public class bBox {
-    ArrayList<Car> cars = new ArrayList();
+    ArrayList<Car> cars;
     int distance;
     int maxNum;
-    public bBox()
+    public bBox(int dist)
     {
-        
+        maxNum = 1000;
+        cars = new ArrayList<>();
+        distance = dist;
     }
-    public boolean addCar()
+    public boolean addCar(int count)
     {
         if(cars.size() < maxNum)
         {
-            cars.add(new Car());
+            cars.add(new Car(28, count));
             return true;
         }
         return false;
@@ -41,5 +43,9 @@ public class bBox {
     public int getDistance()
     {
         return distance;
+    }
+    public ArrayList<Car> getCars()
+    {
+        return cars;
     }
 }

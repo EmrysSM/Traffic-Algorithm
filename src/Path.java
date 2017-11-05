@@ -7,21 +7,23 @@ public class Path {
     LinkedList<bBox> locations;
     public Path(int psize)
     {
-       size =  psize;
+       int bBoxSize = 1000;
+       size =  psize / bBoxSize;
        pathDistance = 0;
        totalCars = 0;
+       locations = new LinkedList();
        for(int i = 0; i < size; i++)
        {
-           locations.add(new bBox());
+           locations.add(new bBox(bBoxSize));
            pathDistance += locations.get(i).getDistance();
            totalCars += locations.get(i).numCars();
        }
        density = (double)totalCars / pathDistance;
     }
     
-    public boolean addCar()
+    public boolean addCar(int count)
     {
-        return locations.get(0).addCar();
+        return locations.get(0).addCar(count);
     }
     public int getPathDistance()
     {
@@ -30,7 +32,7 @@ public class Path {
     public double getAverageSpeed()
     {
         int averageSpeed = 0;
-        int count = 0;
+        int count = 1;
         for(bBox b : locations)
         {
             if(b.getAverageSpeed() >0)
@@ -45,6 +47,9 @@ public class Path {
     {
         return density;
     }
-    public boolean
+    public LinkedList<bBox> getLocations()
+    {
+        return locations;
+    }
 
 }
