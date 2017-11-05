@@ -1,13 +1,15 @@
 public class Car {
-    double speed;
-    final double MAX_SPEED = 65;
+    int speed;
+    int count;
+    final double MAX_SPEED = 100;
     final double MIN_SPEED = 1;
     int distanceInCurrBox;
-    public Car()
+    public Car(int s, int c)
     {
-        
+        speed = s;
+        count = c;
     }
-    public double getSpeed()
+    public int getSpeed()
     {
         return speed;
     }
@@ -25,5 +27,13 @@ public class Car {
     public void setDistanceInCurrBox(int dist)
     {
         distanceInCurrBox = dist;
+    }
+    public void addDistanceInCurrBox(int dist)
+    {
+        distanceInCurrBox += dist;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
